@@ -5,7 +5,7 @@ class PredictionTests:
 
 	def number_countries(self):
 		countries = pd.read_csv('./data/all_country_temp_data_CLEAN.csv')
-		fc = './data/country_forecast.csv'
+		fc = pd.read_csv('./data/country_forecast.csv')
 		assert len(countries['country'].unique())==len(fc['country'].unique())
 
 	def years_of_prediction(self):
