@@ -19,13 +19,13 @@ from bokeh.layouts import widgetbox, column
 from bokeh.io import curdoc
 
 
-######### Paths to datafiles_
+######### Paths to datafiles:
 DATA = './data/all_country_temp_data_CLEAN.csv'
 SHAPEFILE = './data/ne_110m_admin_0_countries.shp'
 FC = './data/country_forecast.csv'
 
 ######### used functions:
-def preprocessing(DATA,FC):
+def preprocessing(DATA, FC):
     """
     reads the input tables and concatenates a complete dataframe used for visualization
 
@@ -56,7 +56,7 @@ def update_plot(attr, old, new):
 
 
 ######### file processing:
-df = preprocessing(DATA,FC)
+df = preprocessing(DATA, FC)
 
 gdf = gpd.read_file(SHAPEFILE)[['ADMIN', 'geometry']]
 gdf_merged = pd.merge(left = gdf, right = df, left_on = 'ADMIN', right_on = 'country')
