@@ -15,6 +15,6 @@ def test_number_countries():
     df = preprocessing(DATA, FC)
     assert len(df['country'].unique()) == 236
 
-def test_years_of_prediction(fc):
+def test_years_of_prediction():
     fc = forecast_postprocessing(results)
     assert len(fc['year'].unique()) == 20
