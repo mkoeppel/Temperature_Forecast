@@ -8,12 +8,21 @@ from fbprophet import Prophet
 
 
 DATA = './data/all_country_temp_data_CLEAN.csv'
-data = pd.read_csv(DATA)
-data['year_month'] = data.year.astype(str) + "-" + data.month.astype(str)
-data['date'] = pd.to_datetime(data['year_month'].astype(str), yearfirst = True)
-data = data.loc[data['country'] != 'Antarctica']
-data.dropna(inplace = True)
-country_list = data['country'].unique()
+
+def forecast_preprocessing(DATA):
+    """
+    preprocessing of Berkeley-data to be used for temperature prediction
+
+    Params:
+        input: takes the dataframe with monthly_anomaly per country
+        output: a modified dataframe that can be used by subsequent functions
+    """
+    data = pd.read_csv(DATA)
+    data['year_month'] = data.year.astype(str) + "-" + data.month.astype(str)
+    data['date'] = pd.to_datetime(data['year_month'].astype(str), yearfirst = True)
+    data = data.loc[data['country'] != 'Antarctica']
+    data.dropna(inplace = True)
+    return data
 
 def select_and_process_country(country):
     '''
@@ -43,6 +52,10 @@ def forecast_prophet(df):
     forecast = m.predict(future)
     return forecast
 
+
+data = forecast_preprocessing(DATA)
+country_list = data['country'].unique()
+
 collected_forecast = []
 for country in country_list:
     df = select_and_process_country(country)
@@ -50,7 +63,6 @@ for country in country_list:
     result = forecast[['ds', 'trend']]
     result['country'] = country
     collected_forecast.append(result)
-
 results = pd.concat(collected_forecast)
 
 def forecast_postprocessing(results):
