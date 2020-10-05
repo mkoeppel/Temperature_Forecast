@@ -1,3 +1,6 @@
+https://travis-ci.org/mkoeppel/Temperature_Forecast.svg?branch=master
+
+
 # Temperature_Forecast
 Forecast of global temperature development
 
