@@ -1,13 +1,8 @@
 import pytest
-import pandas
+import pandas as pd
+from prophet_countries_forcast import forecast_postprocessing
 
-class PredictionTests:
 
-	def number_countries(self):
-		countries = pd.read_csv('./data/all_country_temp_data_CLEAN.csv')
-		fc = pd.read_csv('./data/country_forecast.csv')
-		assert len(countries['country'].unique())==len(fc['country'].unique())
-
-	def years_of_prediction(self):
-		fc = pd.read_csv('./data/country_forecast.csv')
-		assert len(fc['year'].unique())==20
+def years_of_prediction(fc):
+    fc = forecast_postprocessing(results)
+    assert len(fc['year'].unique()) == 20

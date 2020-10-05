@@ -58,17 +58,17 @@ def forecast_postprocessing(results):
     performs some clean-up of the data and prepares it for concatenation with inital make_future_dataframe
 
     Params:
-        input: a concatenated dataframe of fb.propet final_results
+        input: a concatenated dataframe of fb.prophet final_results
         output: a cleaned dataframe with newly labeled columns and yearly medians of forecasted temperature change
     """
-    results['date'] = pd.to_datetime(fc['ds'].astype(str), yearfirst = True)
+    results['date'] = pd.to_datetime(results['ds'].astype(str), yearfirst = True)
     results['year'] = results['date'].dt.year
     results['month'] = results['date'].dt.month
     results = results[['country', 'trend', 'year', 'month']]
-    results = results.loc[fc['country'] != 'Antarctica']
+    results = results.loc[results['country'] != 'Antarctica']
     results = results.groupby(['country', 'year'])[['trend']].mean().reset_index()
     results.columns = ['country', 'year', 'monthly_anomaly']
-    return final_results
+    return results
 
 final_results = forecast_postprocessing(results)
-final_results.to_csv('data/country_forecast.csv', sep=',', header=True,index=False)
+final_results.to_csv('./data/country_forecast.csv', sep=',', header=True,index=False)
