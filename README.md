@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/mkoeppel/Temperature_Forecast.svg?branch=master)](https://travis-ci.org/mkoeppel/Temperature_Forecast)
 
 # Temperature_Forecast
-Forecast of global temperature development
+Interactive forecast of global temperature development
 
 ## Disclaimer: this is NOT a sophisticted model of world-wide temperature change!
 
