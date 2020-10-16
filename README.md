@@ -1,9 +1,11 @@
+[![Build Status](https://travis-ci.org/mkoeppel/Temperature_Forecast.svg?branch=master)](https://travis-ci.org/mkoeppel/Temperature_Forecast)
+
 # Temperature_Forecast
-Forecast of global temperature development
+Interactive forecast of global temperature development
 
 ## Disclaimer: this is NOT a sophisticted model of world-wide temperature change!
 
-This forecast is using fb.prophet to forecast countries temperatures on a 240 month (20 yeras) scale and display these as an interactive map
+This forecast is using fb.prophet to forecast countries temperatures on a 240 month (20 years) scale and display these as an interactive map.
 The data for this particular project was scraped from Berkeley Earth and cleaned / pre-processed (For which I would like to thank and acknowledge Paul Wlodkowski @github.com/pawlodkowski).
 
 The forecasting algorithm was applied to individual countries contained in the Berkeley dataset and resulted in monthly predictions of that countries temperature.
