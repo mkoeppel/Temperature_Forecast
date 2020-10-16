@@ -12,7 +12,7 @@ The forecasting algorithm was applied to individual countries contained in the B
 Subsequently, the mean per year was calculated and coupled a GeoJSON file to allow for display on a map.
 Finally Bokeh was used to obtain an interactive map in which individual years and countries can be selected/ highlighted.
 
-[!Alt text] (https://github.com/mkoeppel/Temperature_Forecast/blob/master/bokeh_forecast.gif)
+![alt text] (https://github.com/mkoeppel/Temperature_Forecast/blob/master/bokeh_forecast.gif)
 
 To get to the map, download the data/ folder and 'prophet_countries_forcast.py' and 'bokeh_prophet.py'. After running 'prophet_countries_forcast.py'
 a html-site with the map can be obtained by typing into a terminal: bokeh serve --show bokeh_prophet.py
